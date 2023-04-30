@@ -59,6 +59,8 @@ a {
   height: 40px;
   background-color: #444444;
   color: #fff;
+  border-radius: 3px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .key-backspace,
@@ -78,6 +80,7 @@ a {
 .key-arrow-left,
 .key-arrow-right {
   background-color: #222222;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .key-backspace {
@@ -106,4 +109,17 @@ a {
 
 .key-space {
   width: 330px;
+}
+
+.key:hover {
+  background-color: #764acf;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.key.active {
+  background-color: #48268c;
+}
+
+textarea:focus {
+  outline: none;
 }
