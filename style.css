@@ -41,11 +41,14 @@ a {
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
+  margin: 0 auto;
+  width: 700px;
 }
 
 .keys-row {
   display: flex;
-  justify-content: space-between;
+  gap: 0px 6px;
+  margin: 0 auto;
 }
 
 .key {
@@ -56,4 +59,51 @@ a {
   height: 40px;
   background-color: #444444;
   color: #fff;
+}
+
+.key-backspace,
+.key-tab,
+.key-del,
+.key-capslock,
+.key-enter,
+.key-shift-left,
+.key-shift-right,
+.key-control-left,
+.key-control-right,
+.key-windows,
+.key-alt-left,
+.key-alt-right,
+.key-arrow-up,
+.key-arrow-down,
+.key-arrow-left,
+.key-arrow-right {
+  background-color: #222222;
+}
+
+.key-backspace {
+  width: 100px;
+}
+
+.key-tab {
+  width: 54px;
+}
+
+.key-enter {
+  width: 106px;
+}
+
+.key-capslock {
+  width: 80px;
+}
+
+.key-shift-left {
+  width: 100px;
+}
+
+.key-shift-right {
+  width: 86px;
+}
+
+.key-space {
+  width: 330px;
 }
