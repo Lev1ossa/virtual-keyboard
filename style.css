@@ -123,3 +123,26 @@ a {
 textarea:focus {
   outline: none;
 }
+
+.ru-lower-case,
+.ru-upper-case,
+.en-lower-case,
+.en-upper-case {
+  display: none;
+}
+
+.lang-ru.lower-case .ru-lower-case {
+  display: unset;
+}
+
+.lang-ru.upper-case .ru-upper-case {
+  display: unset;
+}
+
+.lang-en.lower-case .en-lower-case {
+  display: unset;
+}
+
+.lang-en.upper-case .en-upper-case {
+  display: unset;
+}
