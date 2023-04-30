@@ -7,7 +7,7 @@ const keys = {
       upperCase: 'Ё',
     },
     en: {
-      lowerCase: '\'',
+      lowerCase: '`',
       upperCase: '~',
     },
   },
@@ -158,6 +158,7 @@ const keys = {
   backspace: {
     eventCode: 'Backspace',
     keysRow: 1,
+    keyClass: 'key-backspace',
     ru: {
       lowerCase: 'Backspace',
       upperCase: 'Backspace',
@@ -170,6 +171,7 @@ const keys = {
   tab: {
     eventCode: 'Tab',
     keysRow: 2,
+    keyClass: 'key-tab',
     ru: {
       lowerCase: 'Tab',
       upperCase: 'Tab',
@@ -338,6 +340,7 @@ const keys = {
   delete: {
     eventCode: 'Delete',
     keysRow: 2,
+    keyClass: 'key-del',
     ru: {
       lowerCase: 'Del',
       upperCase: 'Del',
@@ -350,6 +353,7 @@ const keys = {
   capsLock: {
     eventCode: 'CapsLock',
     keysRow: 3,
+    keyClass: 'key-capslock',
     ru: {
       lowerCase: 'CapsLock',
       upperCase: 'CapsLock',
@@ -494,6 +498,7 @@ const keys = {
   enter: {
     eventCode: 'Enter',
     keysRow: 3,
+    keyClass: 'key-enter',
     ru: {
       lowerCase: 'Enter',
       upperCase: 'Enter',
@@ -506,6 +511,7 @@ const keys = {
   shiftLeft: {
     eventCode: 'ShiftLeft',
     keysRow: 4,
+    keyClass: 'key-shift-left',
     ru: {
       lowerCase: 'Shift',
       upperCase: 'Shift',
@@ -638,6 +644,7 @@ const keys = {
   arrowUp: {
     eventCode: 'ArrowUp',
     keysRow: 4,
+    keyClass: 'key-arrow-up',
     ru: {
       lowerCase: '&#8593;',
       upperCase: '&#8593;',
@@ -650,6 +657,7 @@ const keys = {
   shiftRight: {
     eventCode: 'ShiftRight',
     keysRow: 4,
+    keyClass: 'key-shift-right',
     ru: {
       lowerCase: 'Shift',
       upperCase: 'Shift',
@@ -662,6 +670,7 @@ const keys = {
   controlLeft: {
     eventCode: 'ControlLeft',
     keysRow: 5,
+    keyClass: 'key-control-left',
     ru: {
       lowerCase: 'Ctrl',
       upperCase: 'Ctrl',
@@ -674,6 +683,7 @@ const keys = {
   metaLeft: {
     eventCode: 'MetaLeft',
     keysRow: 5,
+    keyClass: 'key-meta-left',
     ru: {
       lowerCase: 'Win',
       upperCase: 'Win',
@@ -686,6 +696,7 @@ const keys = {
   altLeft: {
     eventCode: 'AltLeft',
     keysRow: 5,
+    keyClass: 'key-alt-left',
     ru: {
       lowerCase: 'Alt',
       upperCase: 'Alt',
@@ -698,6 +709,7 @@ const keys = {
   space: {
     eventCode: 'Space',
     keysRow: 5,
+    keyClass: 'key-space',
     ru: {
       lowerCase: ' ',
       upperCase: ' ',
@@ -710,6 +722,7 @@ const keys = {
   altRight: {
     eventCode: 'AltRight',
     keysRow: 5,
+    keyClass: 'key-alt-right',
     ru: {
       lowerCase: 'Alt',
       upperCase: 'Alt',
@@ -722,6 +735,7 @@ const keys = {
   arrowLeft: {
     eventCode: 'ArrowLeft',
     keysRow: 5,
+    keyClass: 'key-arrow-left',
     ru: {
       lowerCase: '&#8592;',
       upperCase: '&#8592;',
@@ -734,6 +748,7 @@ const keys = {
   arrowDown: {
     eventCode: 'ArrowDown',
     keysRow: 5,
+    keyClass: 'key-arrow-down',
     ru: {
       lowerCase: '&#8595;',
       upperCase: '&#8595;',
@@ -746,6 +761,7 @@ const keys = {
   arrowRight: {
     eventCode: 'ArrowRight',
     keysRow: 5,
+    keyClass: 'key-arrow-right',
     ru: {
       lowerCase: '&#8594;',
       upperCase: '&#8594;',
@@ -758,6 +774,7 @@ const keys = {
   controlRight: {
     eventCode: 'ControlRight',
     keysRow: 5,
+    keyClass: 'key-control-right',
     ru: {
       lowerCase: 'Ctrl',
       upperCase: 'Ctrl',
@@ -769,7 +786,12 @@ const keys = {
   },
 };
 
+let curLang = 'ru';
+let curCase = 'lower';
+
 // TODO delete this
-if (keys) {
+if (keys && curLang && curCase) {
+  curLang = 'ru';
+  curCase = 'lower';
   console.log('delete me!');
 }
