@@ -971,7 +971,7 @@ const createKeyboard = () => {
   app.innerHTML = `<div class="head">
     <div class="info">
       <p class="info-text">Область ввода:</p>
-      <a class="info-link" href="#">Pool Request</a>
+      <a class="info-link" href="https://github.com/Lev1ossa/virtual-keyboard/pull/1">Pool Request</a>
     </div>
     <textarea class="textarea"></textarea>
     <div class="info">
