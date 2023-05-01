@@ -789,6 +789,7 @@ const keys = {
 const body = document.querySelector('body');
 let curLang = localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'ru';
 let curCase = 'lower';
+let curCaps = false;
 
 const createCustomEvent = (eventType, event, keyObj) => {
   const customEvent = new KeyboardEvent(eventType, {
@@ -801,6 +802,7 @@ const createCustomEvent = (eventType, event, keyObj) => {
     ctrlKey: event.ctrlKey,
     metaKey: event.metaKey,
     shiftKey: event.shiftKey,
+    repeat: event.repeat,
   });
 
   return customEvent;
@@ -829,6 +831,9 @@ const changeLanguage = () => {
 
 const createKey = (keyObj) => {
   const textarea = document.querySelector('.textarea');
+  const keyboard = document.querySelector('.keyboard');
+
+  const key = document.createElement('div');
 
   const textareaInsert = (insertion) => {
     textarea.focus();
@@ -868,7 +873,6 @@ const createKey = (keyObj) => {
     }
   };
 
-  const key = document.createElement('div');
   key.classList.add('key');
   key.innerHTML = `<span class="ru-lower-case">${keyObj.ru.lowerCase}</span>
     <span class="ru-upper-case">${keyObj.ru.upperCase}</span>
@@ -894,7 +898,9 @@ const createKey = (keyObj) => {
   key.addEventListener('keydown', (event) => {
     console.log('heydown');
     if (keyObj.eventCode === event.code) {
-      key.classList.add('active');
+      if (!(keyObj.eventCode === 'CapsLock')) {
+        key.classList.add('active');
+      }
       // Change language
       if ((keyObj.eventCode === 'AltLeft' && event.ctrlKey) || (keyObj.eventCode === 'ControlLeft' && event.altKey)) {
         changeLanguage();
@@ -907,8 +913,44 @@ const createKey = (keyObj) => {
         textareaInsert('\t');
       } else if (keyObj.eventCode === 'Delete') {
         textareaDelete(false);
-      } else {
-        textareaInsert(keyObj[curLang][`${curCase}Case`]);
+      } else if (keyObj.eventCode === 'CapsLock') {
+        if (!event.repeat) {
+          // if (keyboard.classList.contains('caps')) {
+          if (curCaps) {
+            curCaps = false;
+            keyboard.classList.remove('caps');
+            key.classList.remove('active');
+          } else {
+            curCaps = true;
+            keyboard.classList.add('caps');
+            key.classList.add('active');
+          }
+        }
+      } else if (keyObj.eventCode === 'Enter') {
+        textareaInsert('\n');
+      } else if ((keyObj.eventCode === 'ShiftLeft' || keyObj.eventCode === 'ShiftRight')) {
+        if (!event.repeat) {
+          if (curCase === 'lower') {
+            curCase = 'upper';
+            keyboard.classList.remove('lower-case');
+            keyboard.classList.add('upper-case');
+          } else {
+            curCase = 'lower';
+            keyboard.classList.remove('upper-case');
+            keyboard.classList.add('lower-case');
+          }
+        }
+      } else if (!(keyObj.eventCode === 'AltLeft' || keyObj.eventCode === 'AltRight'
+      || keyObj.eventCode === 'ControlLeft' || keyObj.eventCode === 'ControlRight'
+      || keyObj.eventCode === 'MetaLeft' || keyObj.eventCode === 'MetaRight')) {
+        let curCaseCaps = 'lower';
+        if (curCase === 'lower' && curCaps) {
+          curCaseCaps = 'upper';
+        } else if (curCase === 'upper' && !curCaps) {
+          curCaseCaps = 'upper';
+        }
+
+        textareaInsert(keyObj[curLang][`${curCaseCaps}Case`]);
       }
     }
   });
@@ -916,7 +958,21 @@ const createKey = (keyObj) => {
   key.addEventListener('keyup', (event) => {
     console.log('heyup');
     if (keyObj.eventCode === event.code) {
-      key.classList.remove('active');
+      if (!(keyObj.eventCode === 'CapsLock')) {
+        key.classList.remove('active');
+      }
+
+      if (keyObj.eventCode === 'ShiftLeft' || keyObj.eventCode === 'ShiftRight') {
+        if (curCase === 'lower') {
+          curCase = 'upper';
+          keyboard.classList.remove('lower-case');
+          keyboard.classList.add('upper-case');
+        } else {
+          curCase = 'lower';
+          keyboard.classList.remove('upper-case');
+          keyboard.classList.add('lower-case');
+        }
+      }
     }
   });
 
@@ -969,6 +1025,7 @@ window.addEventListener('keydown', (event) => {
   event.preventDefault();
   const key = document.querySelector(`.${event.code.toLowerCase()}`);
   if (key) {
+    // console.log(event.repeat);
     key.dispatchEvent(createCustomEvent('keydown', event));
   }
 });

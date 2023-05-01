@@ -149,3 +149,35 @@ textarea:focus {
 .lang-en.upper-case .en-upper-case {
   display: unset;
 }
+
+.lang-ru.lower-case.caps .ru-lower-case {
+  display: none;
+}
+
+.lang-ru.lower-case.caps .ru-upper-case {
+  display: unset;
+}
+
+.lang-ru.upper-case.caps .ru-upper-case {
+  display: none;
+}
+
+.lang-ru.upper-case.caps .ru-lower-case {
+  display: unset;
+}
+
+.lang-en.lower-case.caps .en-lower-case {
+  display: none;
+}
+
+.lang-en.lower-case.caps .en-upper-case {
+  display: unset;
+}
+
+.lang-en.upper-case.caps .en-upper-case {
+  display: none;
+}
+
+.lang-en.upper-case.caps .en-lower-case {
+  display: unset;
+}
