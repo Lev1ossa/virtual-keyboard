@@ -63,7 +63,7 @@ a {
   border-radius: 3px;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s;
 }
 
 .key-backspace,
@@ -83,7 +83,7 @@ a {
 .key-arrow-left,
 .key-arrow-right {
   background-color: #222222;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s;
 }
 
 .key-backspace {
@@ -116,7 +116,7 @@ a {
 
 .key:hover {
   background-color: #764acf;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s;
 }
 
 .key.active {
