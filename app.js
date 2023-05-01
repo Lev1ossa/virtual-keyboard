@@ -646,12 +646,12 @@ const keys = {
     keysRow: 4,
     keyClass: 'key-arrow-up',
     ru: {
-      lowerCase: '&#8593;',
-      upperCase: '&#8593;',
+      lowerCase: '↑',
+      upperCase: '↑',
     },
     en: {
-      lowerCase: '&#8593;',
-      upperCase: '&#8593;',
+      lowerCase: '↑',
+      upperCase: '↑',
     },
   },
   shiftRight: {
@@ -737,12 +737,12 @@ const keys = {
     keysRow: 5,
     keyClass: 'key-arrow-left',
     ru: {
-      lowerCase: '&#8592;',
-      upperCase: '&#8592;',
+      lowerCase: '←',
+      upperCase: '←',
     },
     en: {
-      lowerCase: '&#8592;',
-      upperCase: '&#8592;',
+      lowerCase: '←',
+      upperCase: '←',
     },
   },
   arrowDown: {
@@ -750,12 +750,12 @@ const keys = {
     keysRow: 5,
     keyClass: 'key-arrow-down',
     ru: {
-      lowerCase: '&#8595;',
-      upperCase: '&#8595;',
+      lowerCase: '↓',
+      upperCase: '↓',
     },
     en: {
-      lowerCase: '&#8595;',
-      upperCase: '&#8595;',
+      lowerCase: '↓',
+      upperCase: '↓',
     },
   },
   arrowRight: {
@@ -763,12 +763,12 @@ const keys = {
     keysRow: 5,
     keyClass: 'key-arrow-right',
     ru: {
-      lowerCase: '&#8594;',
-      upperCase: '&#8594;',
+      lowerCase: '→',
+      upperCase: '→',
     },
     en: {
-      lowerCase: '&#8594;',
-      upperCase: '&#8594;',
+      lowerCase: '→',
+      upperCase: '→',
     },
   },
   controlRight: {
@@ -788,8 +788,6 @@ const keys = {
 
 const body = document.querySelector('body');
 let curLang = localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'ru';
-console.log(localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'ru');
-console.log(curLang);
 let curCase = 'lower';
 
 const createCustomEvent = (eventType, event, keyObj) => {
@@ -830,6 +828,46 @@ const changeLanguage = () => {
 };
 
 const createKey = (keyObj) => {
+  const textarea = document.querySelector('.textarea');
+
+  const textareaInsert = (insertion) => {
+    textarea.focus();
+    const selectStart = textarea.selectionStart;
+    const selectEnd = textarea.selectionEnd;
+    const firstPart = textarea.value.slice(0, selectStart);
+    const secondPart = textarea.value.slice(selectEnd, textarea.length);
+
+    textarea.value = `${firstPart}${insertion}${secondPart}`;
+    textarea.selectionStart = selectStart + 1;
+    textarea.selectionEnd = selectStart + 1;
+  };
+
+  const textareaDelete = (isBackspace) => {
+    textarea.focus();
+    const selectStart = textarea.selectionStart;
+    const selectEnd = textarea.selectionEnd;
+
+    if (selectEnd > selectStart) {
+      const firstPart = textarea.value.slice(0, selectStart);
+      const secondPart = textarea.value.slice(selectEnd, textarea.length);
+      textarea.value = `${firstPart}${secondPart}`;
+      textarea.selectionStart = selectStart + 1;
+      textarea.selectionEnd = selectStart + 1;
+    } else if (isBackspace) {
+      const firstPart = textarea.value.slice(0, selectStart - 1);
+      const secondPart = textarea.value.slice(selectEnd, textarea.length);
+      textarea.value = `${firstPart}${secondPart}`;
+      textarea.selectionStart = selectStart - 1;
+      textarea.selectionEnd = selectStart - 1;
+    } else {
+      const firstPart = textarea.value.slice(0, selectStart);
+      const secondPart = textarea.value.slice(selectEnd + 1, textarea.length);
+      textarea.value = `${firstPart}${secondPart}`;
+      textarea.selectionStart = selectStart;
+      textarea.selectionEnd = selectStart;
+    }
+  };
+
   const key = document.createElement('div');
   key.classList.add('key');
   key.innerHTML = `<span class="ru-lower-case">${keyObj.ru.lowerCase}</span>
@@ -857,9 +895,20 @@ const createKey = (keyObj) => {
     console.log('heydown');
     if (keyObj.eventCode === event.code) {
       key.classList.add('active');
-      if (keyObj.eventCode === 'AltLeft' && event.ctrlKey || keyObj.eventCode === 'ControlLeft' && event.altKey) {
+      // Change language
+      if ((keyObj.eventCode === 'AltLeft' && event.ctrlKey) || (keyObj.eventCode === 'ControlLeft' && event.altKey)) {
         changeLanguage();
         console.log(curLang);
+      }
+
+      if (keyObj.eventCode === 'Backspace') {
+        textareaDelete(true);
+      } else if (keyObj.eventCode === 'Tab') {
+        textareaInsert('\t');
+      } else if (keyObj.eventCode === 'Delete') {
+        textareaDelete(false);
+      } else {
+        textareaInsert(keyObj[curLang][`${curCase}Case`]);
       }
     }
   });
