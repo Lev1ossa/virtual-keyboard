@@ -793,7 +793,6 @@ let curCaps = false;
 
 const createCustomEvent = (eventType, event, keyObj) => {
   const customEvent = new KeyboardEvent(eventType, {
-    // key: event.key,
     code: keyObj ? keyObj.eventCode : event.code,
     bubbles: false,
     cancelable: true,
@@ -807,12 +806,6 @@ const createCustomEvent = (eventType, event, keyObj) => {
 
   return customEvent;
 };
-
-// TODO delete this
-if (curCase) {
-  curCase = 'lower';
-  console.log('delete me!');
-}
 
 const changeLanguage = () => {
   const keyboard = document.querySelector('.keyboard');
@@ -886,25 +879,20 @@ const createKey = (keyObj) => {
   key.classList.add(keyObj.eventCode.toLowerCase());
 
   key.addEventListener('mousedown', (event) => {
-    console.log('heymousedown');
     key.dispatchEvent(createCustomEvent('keydown', event, keyObj));
   });
 
   key.addEventListener('mouseup', (event) => {
-    console.log('heymouseup');
     key.dispatchEvent(createCustomEvent('keyup', event, keyObj));
   });
 
   key.addEventListener('keydown', (event) => {
-    console.log('heydown');
     if (keyObj.eventCode === event.code) {
       if (!(keyObj.eventCode === 'CapsLock')) {
         key.classList.add('active');
       }
-      // Change language
       if ((keyObj.eventCode === 'AltLeft' && event.ctrlKey) || (keyObj.eventCode === 'ControlLeft' && event.altKey)) {
         changeLanguage();
-        console.log(curLang);
       }
 
       if (keyObj.eventCode === 'Backspace') {
@@ -915,7 +903,6 @@ const createKey = (keyObj) => {
         textareaDelete(false);
       } else if (keyObj.eventCode === 'CapsLock') {
         if (!event.repeat) {
-          // if (keyboard.classList.contains('caps')) {
           if (curCaps) {
             curCaps = false;
             keyboard.classList.remove('caps');
@@ -956,7 +943,6 @@ const createKey = (keyObj) => {
   });
 
   key.addEventListener('keyup', (event) => {
-    console.log('heyup');
     if (keyObj.eventCode === event.code) {
       if (!(keyObj.eventCode === 'CapsLock')) {
         key.classList.remove('active');
@@ -1025,7 +1011,6 @@ window.addEventListener('keydown', (event) => {
   event.preventDefault();
   const key = document.querySelector(`.${event.code.toLowerCase()}`);
   if (key) {
-    // console.log(event.repeat);
     key.dispatchEvent(createCustomEvent('keydown', event));
   }
 });
