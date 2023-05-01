@@ -786,12 +786,129 @@ const keys = {
   },
 };
 
+const body = document.querySelector('body');
 let curLang = 'ru';
 let curCase = 'lower';
 
+const createCustomEvent = (event, eventType) => {
+  const customEvent = new KeyboardEvent(eventType, {
+    key: event.key,
+    code: event.code,
+    bubbles: false,
+    cancelable: true,
+    composed: false,
+    altKey: event.altKey,
+    ctrlKey: event.ctrlKey,
+    metaKey: false,
+    shiftKey: event.shiftKey,
+  });
+
+  return customEvent;
+};
+
 // TODO delete this
-if (keys && curLang && curCase) {
+if (curLang && curCase) {
   curLang = 'ru';
   curCase = 'lower';
   console.log('delete me!');
 }
+
+const createKey = (keyObj) => {
+  const key = document.createElement('div');
+  key.classList.add('key');
+  key.innerHTML = `<span class="ru-lower-case">${keyObj.ru.lowerCase}</span>
+    <span class="ru-upper-case">${keyObj.ru.upperCase}</span>
+    <span class="en-lower-case">${keyObj.en.lowerCase}</span>
+    <span class="en-upper-case">${keyObj.en.upperCase}</span>`;
+
+  if (keyObj.keyClass) {
+    key.classList.add(keyObj.keyClass);
+  }
+
+  key.classList.add(keyObj.eventCode.toLowerCase());
+
+  key.addEventListener('mousedown', (event) => {
+    console.log('heymousedown');
+    key.classList.add('active');
+  });
+
+  key.addEventListener('mouseup', (event) => {
+    console.log('heymouseup');
+    key.classList.remove('active');
+  });
+
+  key.addEventListener('keydown', (event) => {
+    console.log('heydown');
+    if (keyObj.eventCode === event.code) {
+      key.classList.add('active');
+    }
+    // key.classList.remove('active');
+  });
+
+  key.addEventListener('keyup', (event) => {
+    console.log('heyup');
+    if (keyObj.eventCode === event.code) {
+      key.classList.remove('active');
+    }
+  });
+
+  return key;
+};
+
+const createKeyboard = () => {
+  const app = document.createElement('div');
+  app.classList.add('app');
+  app.innerHTML = `<div class="head">
+    <div class="info">
+      <p class="info-text">Область ввода:</p>
+      <a class="info-link" href="#">Pool Request</a>
+    </div>
+    <textarea class="textarea"></textarea>
+    <div class="info">
+      <p class="info-text">OS: Windows.</p>
+      <p class="info-text">Переключение языка: левые ctrl + alt.</p>
+    </div>
+  </div>
+  <div class="keyboard lang-${curLang} ${curCase}-case">
+    <div class="keys-row"></div>
+    <div class="keys-row"></div>
+    <div class="keys-row"></div>
+    <div class="keys-row"></div>
+    <div class="keys-row"></div>
+  </div>`;
+
+  body.appendChild(app);
+  const keyboard = document.querySelector('.keyboard');
+
+  Object.keys(keys).forEach((key) => {
+    if (keys[key].keysRow === 1) {
+      keyboard.children[0].appendChild(createKey(keys[key]));
+    } else if (keys[key].keysRow === 2) {
+      keyboard.children[1].appendChild(createKey(keys[key]));
+    } else if (keys[key].keysRow === 3) {
+      keyboard.children[2].appendChild(createKey(keys[key]));
+    } else if (keys[key].keysRow === 4) {
+      keyboard.children[3].appendChild(createKey(keys[key]));
+    } else if (keys[key].keysRow === 5) {
+      keyboard.children[4].appendChild(createKey(keys[key]));
+    }
+  });
+};
+
+createKeyboard();
+
+window.addEventListener('keydown', (event) => {
+  event.preventDefault();
+  const key = document.querySelector(`.${event.code.toLowerCase()}`);
+  if (key) {
+    key.dispatchEvent(createCustomEvent(event, 'keydown'));
+  }
+});
+
+window.addEventListener('keyup', (event) => {
+  event.preventDefault();
+  const key = document.querySelector(`.${event.code.toLowerCase()}`);
+  if (key) {
+    key.dispatchEvent(createCustomEvent(event, 'keyup'));
+  }
+});
