@@ -787,19 +787,21 @@ const keys = {
 };
 
 const body = document.querySelector('body');
-let curLang = 'ru';
+let curLang = localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'ru';
+console.log(localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'ru');
+console.log(curLang);
 let curCase = 'lower';
 
-const createCustomEvent = (event, eventType) => {
+const createCustomEvent = (eventType, event, keyObj) => {
   const customEvent = new KeyboardEvent(eventType, {
-    key: event.key,
-    code: event.code,
+    // key: event.key,
+    code: keyObj ? keyObj.eventCode : event.code,
     bubbles: false,
     cancelable: true,
     composed: false,
     altKey: event.altKey,
     ctrlKey: event.ctrlKey,
-    metaKey: false,
+    metaKey: event.metaKey,
     shiftKey: event.shiftKey,
   });
 
@@ -807,11 +809,25 @@ const createCustomEvent = (event, eventType) => {
 };
 
 // TODO delete this
-if (curLang && curCase) {
-  curLang = 'ru';
+if (curCase) {
   curCase = 'lower';
   console.log('delete me!');
 }
+
+const changeLanguage = () => {
+  const keyboard = document.querySelector('.keyboard');
+  if (curLang === 'ru') {
+    curLang = 'en';
+    localStorage.setItem('curLang', curLang);
+    keyboard.classList.add('lang-en');
+    keyboard.classList.remove('lang-ru');
+  } else {
+    curLang = 'ru';
+    localStorage.setItem('curLang', curLang);
+    keyboard.classList.add('lang-ru');
+    keyboard.classList.remove('lang-en');
+  }
+};
 
 const createKey = (keyObj) => {
   const key = document.createElement('div');
@@ -829,20 +845,23 @@ const createKey = (keyObj) => {
 
   key.addEventListener('mousedown', (event) => {
     console.log('heymousedown');
-    key.classList.add('active');
+    key.dispatchEvent(createCustomEvent('keydown', event, keyObj));
   });
 
   key.addEventListener('mouseup', (event) => {
     console.log('heymouseup');
-    key.classList.remove('active');
+    key.dispatchEvent(createCustomEvent('keyup', event, keyObj));
   });
 
   key.addEventListener('keydown', (event) => {
     console.log('heydown');
     if (keyObj.eventCode === event.code) {
       key.classList.add('active');
+      if (keyObj.eventCode === 'AltLeft' && event.ctrlKey || keyObj.eventCode === 'ControlLeft' && event.altKey) {
+        changeLanguage();
+        console.log(curLang);
+      }
     }
-    // key.classList.remove('active');
   });
 
   key.addEventListener('keyup', (event) => {
@@ -901,7 +920,7 @@ window.addEventListener('keydown', (event) => {
   event.preventDefault();
   const key = document.querySelector(`.${event.code.toLowerCase()}`);
   if (key) {
-    key.dispatchEvent(createCustomEvent(event, 'keydown'));
+    key.dispatchEvent(createCustomEvent('keydown', event));
   }
 });
 
@@ -909,6 +928,6 @@ window.addEventListener('keyup', (event) => {
   event.preventDefault();
   const key = document.querySelector(`.${event.code.toLowerCase()}`);
   if (key) {
-    key.dispatchEvent(createCustomEvent(event, 'keyup'));
+    key.dispatchEvent(createCustomEvent('keyup', event));
   }
 });
