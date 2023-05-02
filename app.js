@@ -1005,8 +1005,13 @@ const createKey = (keyObj) => {
         } else if (curCase === 'upper' && !curCaps) {
           curCaseCaps = 'upper';
         }
-
-        textareaInsert(keyObj[curLang][`${curCaseCaps}Case`]);
+        if (curLang === 'ru' && keyObj.ru.capsSensitive) {
+          textareaInsert(keyObj[curLang][`${curCaseCaps}Case`]);
+        } else if (curLang === 'en' && keyObj.ru.capsSensitive) {
+          textareaInsert(keyObj[curLang][`${curCaseCaps}Case`]);
+        } else {
+          textareaInsert(keyObj[curLang][`${curCase}Case`]);
+        }
       }
     }
   });
