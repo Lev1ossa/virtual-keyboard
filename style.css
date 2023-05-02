@@ -1,0 +1,185 @@
+html,
+body,
+textarea,
+p,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.head {
+  margin: 20px 0px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #888888;
+  color: #f5f5f5;
+}
+
+.textarea {
+  resize: none;
+  width: 100%;
+  height: 200px;
+  font-size: 16px;
+  tab-size: 4;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #888888;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 auto;
+  width: 700px;
+}
+
+.keys-row {
+  display: flex;
+  gap: 0px 6px;
+  margin: 0 auto;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #444444;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.key-backspace,
+.key-tab,
+.key-del,
+.key-capslock,
+.key-enter,
+.key-shift-left,
+.key-shift-right,
+.key-control-left,
+.key-control-right,
+.key-meta-left,
+.key-alt-left,
+.key-alt-right,
+.key-arrow-up,
+.key-arrow-down,
+.key-arrow-left,
+.key-arrow-right {
+  background-color: #222222;
+  transition: background-color 0.3s;
+}
+
+.key-backspace {
+  width: 100px;
+}
+
+.key-tab {
+  width: 54px;
+}
+
+.key-enter {
+  width: 106px;
+}
+
+.key-capslock {
+  width: 80px;
+}
+
+.key-shift-left {
+  width: 100px;
+}
+
+.key-shift-right {
+  width: 86px;
+}
+
+.key-space {
+  width: 330px;
+}
+
+.key:hover {
+  background-color: #764acf;
+  transition: background-color 0.3s;
+}
+
+.key.active {
+  background-color: #48268c;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.ru-lower-case,
+.ru-upper-case,
+.en-lower-case,
+.en-upper-case {
+  display: none;
+  cursor: pointer;
+}
+
+.lang-ru.lower-case .ru-lower-case {
+  display: unset;
+}
+
+.lang-ru.upper-case .ru-upper-case {
+  display: unset;
+}
+
+.lang-en.lower-case .en-lower-case {
+  display: unset;
+}
+
+.lang-en.upper-case .en-upper-case {
+  display: unset;
+}
+
+.lang-ru.lower-case.caps .ru-lower-case.caps-senstive {
+  display: none;
+}
+
+.lang-ru.lower-case.caps .ru-upper-case.caps-senstive {
+  display: unset;
+}
+
+.lang-ru.upper-case.caps .ru-upper-case.caps-senstive {
+  display: none;
+}
+
+.lang-ru.upper-case.caps .ru-lower-case.caps-senstive {
+  display: unset;
+}
+
+.lang-en.lower-case.caps .en-lower-case.caps-senstive {
+  display: none;
+}
+
+.lang-en.lower-case.caps .en-upper-case.caps-senstive {
+  display: unset;
+}
+
+.lang-en.upper-case.caps .en-upper-case.caps-senstive {
+  display: none;
+}
+
+.lang-en.upper-case.caps .en-lower-case.caps-senstive {
+  display: unset;
+}
