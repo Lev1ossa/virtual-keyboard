@@ -915,8 +915,8 @@ const createKey = (keyObj) => {
       const firstPart = textarea.value.slice(0, selectStart);
       const secondPart = textarea.value.slice(selectEnd, textarea.length);
       textarea.value = `${firstPart}${secondPart}`;
-      textarea.selectionStart = selectStart + 1;
-      textarea.selectionEnd = selectStart + 1;
+      textarea.selectionStart = selectStart;
+      textarea.selectionEnd = selectStart;
     } else if (isBackspace) {
       if (selectStart !== 0) {
         const firstPart = textarea.value.slice(0, selectStart - 1);
