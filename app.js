@@ -1007,7 +1007,7 @@ const createKey = (keyObj) => {
         }
         if (curLang === 'ru' && keyObj.ru.capsSensitive) {
           textareaInsert(keyObj[curLang][`${curCaseCaps}Case`]);
-        } else if (curLang === 'en' && keyObj.ru.capsSensitive) {
+        } else if (curLang === 'en' && keyObj.en.capsSensitive) {
           textareaInsert(keyObj[curLang][`${curCaseCaps}Case`]);
         } else {
           textareaInsert(keyObj[curLang][`${curCase}Case`]);
