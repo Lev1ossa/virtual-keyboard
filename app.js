@@ -5,6 +5,7 @@ const keys = {
     ru: {
       lowerCase: 'ё',
       upperCase: 'Ё',
+      capsSensitive: true,
     },
     en: {
       lowerCase: '`',
@@ -187,10 +188,12 @@ const keys = {
     ru: {
       lowerCase: 'й',
       upperCase: 'Й',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'q',
       upperCase: 'Q',
+      capsSensitive: true,
     },
   },
   w: {
@@ -199,10 +202,12 @@ const keys = {
     ru: {
       lowerCase: 'ц',
       upperCase: 'Ц',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'w',
       upperCase: 'W',
+      capsSensitive: true,
     },
   },
   e: {
@@ -211,10 +216,12 @@ const keys = {
     ru: {
       lowerCase: 'y',
       upperCase: 'У',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'e',
       upperCase: 'E',
+      capsSensitive: true,
     },
   },
   r: {
@@ -223,10 +230,12 @@ const keys = {
     ru: {
       lowerCase: 'к',
       upperCase: 'К',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'r',
       upperCase: 'R',
+      capsSensitive: true,
     },
   },
   t: {
@@ -235,10 +244,12 @@ const keys = {
     ru: {
       lowerCase: 'е',
       upperCase: 'Е',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 't',
       upperCase: 'T',
+      capsSensitive: true,
     },
   },
   y: {
@@ -247,10 +258,12 @@ const keys = {
     ru: {
       lowerCase: 'н',
       upperCase: 'Н',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'y',
       upperCase: 'Y',
+      capsSensitive: true,
     },
   },
   u: {
@@ -259,10 +272,12 @@ const keys = {
     ru: {
       lowerCase: 'г',
       upperCase: 'Г',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'u',
       upperCase: 'U',
+      capsSensitive: true,
     },
   },
   i: {
@@ -271,10 +286,12 @@ const keys = {
     ru: {
       lowerCase: 'ш',
       upperCase: 'Ш',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'i',
       upperCase: 'I',
+      capsSensitive: true,
     },
   },
   o: {
@@ -283,10 +300,12 @@ const keys = {
     ru: {
       lowerCase: 'щ',
       upperCase: 'Щ',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'o',
       upperCase: 'O',
+      capsSensitive: true,
     },
   },
   p: {
@@ -295,10 +314,12 @@ const keys = {
     ru: {
       lowerCase: 'з',
       upperCase: 'З',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'p',
       upperCase: 'P',
+      capsSensitive: true,
     },
   },
   bracketleft: {
@@ -307,6 +328,7 @@ const keys = {
     ru: {
       lowerCase: 'x',
       upperCase: 'X',
+      capsSensitive: true,
     },
     en: {
       lowerCase: '[',
@@ -319,6 +341,7 @@ const keys = {
     ru: {
       lowerCase: 'ъ',
       upperCase: 'Ъ',
+      capsSensitive: true,
     },
     en: {
       lowerCase: ']',
@@ -369,10 +392,12 @@ const keys = {
     ru: {
       lowerCase: 'ф',
       upperCase: 'Ф',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'a',
       upperCase: 'A',
+      capsSensitive: true,
     },
   },
   s: {
@@ -381,10 +406,12 @@ const keys = {
     ru: {
       lowerCase: 'ы',
       upperCase: 'Ы',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 's',
       upperCase: 'S',
+      capsSensitive: true,
     },
   },
   d: {
@@ -393,10 +420,12 @@ const keys = {
     ru: {
       lowerCase: 'в',
       upperCase: 'В',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'd',
       upperCase: 'D',
+      capsSensitive: true,
     },
   },
   f: {
@@ -405,10 +434,12 @@ const keys = {
     ru: {
       lowerCase: 'а',
       upperCase: 'А',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'f',
       upperCase: 'F',
+      capsSensitive: true,
     },
   },
   g: {
@@ -417,10 +448,12 @@ const keys = {
     ru: {
       lowerCase: 'п',
       upperCase: 'П',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'g',
       upperCase: 'G',
+      capsSensitive: true,
     },
   },
   h: {
@@ -429,10 +462,12 @@ const keys = {
     ru: {
       lowerCase: 'р',
       upperCase: 'Р',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'h',
       upperCase: 'H',
+      capsSensitive: true,
     },
   },
   j: {
@@ -441,10 +476,12 @@ const keys = {
     ru: {
       lowerCase: 'о',
       upperCase: 'О',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'j',
       upperCase: 'J',
+      capsSensitive: true,
     },
   },
   k: {
@@ -453,10 +490,12 @@ const keys = {
     ru: {
       lowerCase: 'л',
       upperCase: 'Л',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'k',
       upperCase: 'K',
+      capsSensitive: true,
     },
   },
   l: {
@@ -465,10 +504,12 @@ const keys = {
     ru: {
       lowerCase: 'д',
       upperCase: 'Д',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'l',
       upperCase: 'L',
+      capsSensitive: true,
     },
   },
   semicolon: {
@@ -477,6 +518,7 @@ const keys = {
     ru: {
       lowerCase: 'ж',
       upperCase: 'Ж',
+      capsSensitive: true,
     },
     en: {
       lowerCase: ';',
@@ -489,6 +531,7 @@ const keys = {
     ru: {
       lowerCase: 'э',
       upperCase: 'Э',
+      capsSensitive: true,
     },
     en: {
       lowerCase: '\'',
@@ -527,10 +570,12 @@ const keys = {
     ru: {
       lowerCase: 'я',
       upperCase: 'Я',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'z',
       upperCase: 'Z',
+      capsSensitive: true,
     },
   },
   x: {
@@ -539,10 +584,12 @@ const keys = {
     ru: {
       lowerCase: 'ч',
       upperCase: 'Ч',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'x',
       upperCase: 'X',
+      capsSensitive: true,
     },
   },
   c: {
@@ -551,10 +598,12 @@ const keys = {
     ru: {
       lowerCase: 'с',
       upperCase: 'С',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'c',
       upperCase: 'C',
+      capsSensitive: true,
     },
   },
   v: {
@@ -563,10 +612,12 @@ const keys = {
     ru: {
       lowerCase: 'м',
       upperCase: 'М',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'v',
       upperCase: 'V',
+      capsSensitive: true,
     },
   },
   b: {
@@ -575,10 +626,12 @@ const keys = {
     ru: {
       lowerCase: 'и',
       upperCase: 'И',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'b',
       upperCase: 'B',
+      capsSensitive: true,
     },
   },
   n: {
@@ -587,10 +640,12 @@ const keys = {
     ru: {
       lowerCase: 'т',
       upperCase: 'Т',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'n',
       upperCase: 'N',
+      capsSensitive: true,
     },
   },
   m: {
@@ -599,10 +654,12 @@ const keys = {
     ru: {
       lowerCase: 'ь',
       upperCase: 'Ь',
+      capsSensitive: true,
     },
     en: {
       lowerCase: 'm',
       upperCase: 'M',
+      capsSensitive: true,
     },
   },
   comma: {
@@ -611,6 +668,7 @@ const keys = {
     ru: {
       lowerCase: 'б',
       upperCase: 'Б',
+      capsSensitive: true,
     },
     en: {
       lowerCase: ',',
@@ -623,6 +681,7 @@ const keys = {
     ru: {
       lowerCase: 'ю',
       upperCase: 'Ю',
+      capsSensitive: true,
     },
     en: {
       lowerCase: '.',
@@ -635,6 +694,7 @@ const keys = {
     ru: {
       lowerCase: '.',
       upperCase: ',',
+      capsSensitive: true,
     },
     en: {
       lowerCase: '/',
@@ -790,6 +850,7 @@ const body = document.querySelector('body');
 let curLang = localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'ru';
 let curCase = 'lower';
 let curCaps = false;
+let clickedKey;
 
 const createCustomEvent = (eventType, event, keyObj) => {
   const customEvent = new KeyboardEvent(eventType, {
@@ -836,8 +897,13 @@ const createKey = (keyObj) => {
     const secondPart = textarea.value.slice(selectEnd, textarea.length);
 
     textarea.value = `${firstPart}${insertion}${secondPart}`;
-    textarea.selectionStart = selectStart + 1;
-    textarea.selectionEnd = selectStart + 1;
+    if (insertion === '    ') {
+      textarea.selectionStart = selectStart + 4;
+      textarea.selectionEnd = selectStart + 4;
+    } else {
+      textarea.selectionStart = selectStart + 1;
+      textarea.selectionEnd = selectStart + 1;
+    }
   };
 
   const textareaDelete = (isBackspace) => {
@@ -852,11 +918,13 @@ const createKey = (keyObj) => {
       textarea.selectionStart = selectStart + 1;
       textarea.selectionEnd = selectStart + 1;
     } else if (isBackspace) {
-      const firstPart = textarea.value.slice(0, selectStart - 1);
-      const secondPart = textarea.value.slice(selectEnd, textarea.length);
-      textarea.value = `${firstPart}${secondPart}`;
-      textarea.selectionStart = selectStart - 1;
-      textarea.selectionEnd = selectStart - 1;
+      if (selectStart !== 0) {
+        const firstPart = textarea.value.slice(0, selectStart - 1);
+        const secondPart = textarea.value.slice(selectEnd, textarea.length);
+        textarea.value = `${firstPart}${secondPart}`;
+        textarea.selectionStart = selectStart - 1;
+        textarea.selectionEnd = selectStart - 1;
+      }
     } else {
       const firstPart = textarea.value.slice(0, selectStart);
       const secondPart = textarea.value.slice(selectEnd + 1, textarea.length);
@@ -867,10 +935,10 @@ const createKey = (keyObj) => {
   };
 
   key.classList.add('key');
-  key.innerHTML = `<span class="ru-lower-case">${keyObj.ru.lowerCase}</span>
-    <span class="ru-upper-case">${keyObj.ru.upperCase}</span>
-    <span class="en-lower-case">${keyObj.en.lowerCase}</span>
-    <span class="en-upper-case">${keyObj.en.upperCase}</span>`;
+  key.innerHTML = `<span class="ru-lower-case${keyObj.ru.capsSensitive ? ' caps-senstive' : ' caps-no-senstive'}">${keyObj.ru.lowerCase}</span>
+    <span class="ru-upper-case${keyObj.ru.capsSensitive ? ' caps-senstive' : ' caps-no-senstive'}">${keyObj.ru.upperCase}</span>
+    <span class="en-lower-case${keyObj.en.capsSensitive ? ' caps-senstive' : ' caps-no-senstive'}">${keyObj.en.lowerCase}</span>
+    <span class="en-upper-case${keyObj.en.capsSensitive ? ' caps-senstive' : ' caps-no-senstive'}">${keyObj.en.upperCase}</span>`;
 
   if (keyObj.keyClass) {
     key.classList.add(keyObj.keyClass);
@@ -879,6 +947,7 @@ const createKey = (keyObj) => {
   key.classList.add(keyObj.eventCode.toLowerCase());
 
   key.addEventListener('mousedown', (event) => {
+    clickedKey = key;
     key.dispatchEvent(createCustomEvent('keydown', event, keyObj));
   });
 
@@ -898,7 +967,7 @@ const createKey = (keyObj) => {
       if (keyObj.eventCode === 'Backspace') {
         textareaDelete(true);
       } else if (keyObj.eventCode === 'Tab') {
-        textareaInsert('\t');
+        textareaInsert('    ');
       } else if (keyObj.eventCode === 'Delete') {
         textareaDelete(false);
       } else if (keyObj.eventCode === 'CapsLock') {
@@ -1021,4 +1090,29 @@ window.addEventListener('keyup', (event) => {
   if (key) {
     key.dispatchEvent(createCustomEvent('keyup', event));
   }
+});
+
+window.addEventListener('mouseup', (event) => {
+  const keyboard = document.querySelector('.keyboard');
+  if (clickedKey) {
+    if (!(clickedKey === event.target || clickedKey === event.target.parentElement)) {
+      if (!clickedKey.classList.contains('capslock')) {
+        clickedKey.classList.remove('active');
+      }
+
+      if (clickedKey.classList.contains('shiftleft') || clickedKey.classList.contains('shiftright')) {
+        if (curCase === 'lower') {
+          curCase = 'upper';
+          keyboard.classList.remove('lower-case');
+          keyboard.classList.add('upper-case');
+        } else {
+          curCase = 'lower';
+          keyboard.classList.remove('upper-case');
+          keyboard.classList.add('lower-case');
+        }
+      }
+    }
+  }
+
+  clickedKey = undefined;
 });

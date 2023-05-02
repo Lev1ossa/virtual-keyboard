@@ -26,6 +26,7 @@ a {
   width: 100%;
   height: 200px;
   font-size: 16px;
+  tab-size: 4;
 }
 
 .info {
@@ -151,34 +152,34 @@ textarea:focus {
   display: unset;
 }
 
-.lang-ru.lower-case.caps .ru-lower-case {
+.lang-ru.lower-case.caps .ru-lower-case.caps-senstive {
   display: none;
 }
 
-.lang-ru.lower-case.caps .ru-upper-case {
+.lang-ru.lower-case.caps .ru-upper-case.caps-senstive {
   display: unset;
 }
 
-.lang-ru.upper-case.caps .ru-upper-case {
+.lang-ru.upper-case.caps .ru-upper-case.caps-senstive {
   display: none;
 }
 
-.lang-ru.upper-case.caps .ru-lower-case {
+.lang-ru.upper-case.caps .ru-lower-case.caps-senstive {
   display: unset;
 }
 
-.lang-en.lower-case.caps .en-lower-case {
+.lang-en.lower-case.caps .en-lower-case.caps-senstive {
   display: none;
 }
 
-.lang-en.lower-case.caps .en-upper-case {
+.lang-en.lower-case.caps .en-upper-case.caps-senstive {
   display: unset;
 }
 
-.lang-en.upper-case.caps .en-upper-case {
+.lang-en.upper-case.caps .en-upper-case.caps-senstive {
   display: none;
 }
 
-.lang-en.upper-case.caps .en-lower-case {
+.lang-en.upper-case.caps .en-lower-case.caps-senstive {
   display: unset;
 }
